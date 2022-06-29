@@ -53,7 +53,7 @@ if __name__ == '__main__':
             s = s_
         agent.store_episode_reward(episode_reward)
 
-        env.reset()
+        s=env.reset()
         print("Rewards: ", np.mean(agent.reward_buffer))
     while True:
         s = env.reset()
