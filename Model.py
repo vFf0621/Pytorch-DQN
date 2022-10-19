@@ -20,7 +20,9 @@ class Q(nn.Module):
         state_space = env.observation_space.shape[0]
 
         self.net = nn.Sequential(nn.Linear(state_space, hidden_dim),  
-                                 nn.Sigmoid(), 
+                                 nn.Tanh(), 
+                                 nn.Linear(hidden_dim, hidden_dim),
+                                 nn.Tanh(),
                                  nn.Linear(hidden_dim, action_space))
         self.optimizer = torch.optim.Adam(self.parameters(), lr=lr)
 
